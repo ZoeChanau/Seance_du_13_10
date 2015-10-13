@@ -1,0 +1,38 @@
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+params  = (0,10)
+var = 5
+N = 100
+x = 10*np.random.random(N)
+y = params[0] + params[1]*x + var*np.random.normal(size=len(x))
+
+plt.scatter(x,y)
+plt.show()
+def covariance(x,y):
+  return 1./(len(x)-1)*np.dot(x-x.mean(),y-y.mean())
+  
+def Matrice_covariance_2D(x,y):
+  return np.array([[covariance(x,x), covariance(x,y)],[covariance(y,x); covariance(y,y)]])
+  
+  M= Matrice_covariance_2D(x,y)
+  np.testintg.assert_almost_egual(M, np.cov(x,y))
+  
+  print M
+  print np.cov(x,y)
+  
+from math import sin, cos  
+u = np.array([1,0])
+
+def rotation_matrix(theta):
+  return np.array([[covariance(x,x), covariance(x,y)],[covariance(y,x); covariance(y,y)]])
+
+def rotate(v, theta):
+    pass
+
+u_prime = rotate(u, 3.14159/2) #rotation de u de 90°
+
+assert np.linalg.norm(u) == np.linalg.norm(u_prime)
+assert np.linalg.det(rotation_matrix(3*14159/2)) == 1
+
