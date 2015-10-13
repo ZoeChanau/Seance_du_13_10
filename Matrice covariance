@@ -1,9 +1,21 @@
-Dans la matrice de la covariance, la variance et la covariance sont égales dans la diagonale.
+#Dans la matrice de la covariance, la variance et la covariance sont égales dans la diagonale.
 
-En prenant x et y en paramètre on obtient une matrice de covariance (2,2)
-N représente la taille de x
-x.mean() et y.means() représentent les moyennes de x et y
+#En prenant x et y en paramètre on obtient une matrice de covariance (2,2)
+#N représente la taille de x
+#x.mean() et y.means() représentent les moyennes de x et y
 
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+params  = (0,10)
+var = 5
+N = 100
+x = 10*np.random.random(N)
+y = params[0] + params[1]*x + var*np.random.normal(size=len(x))
+
+plt.scatter(x,y)
+plt.show()
 def covariance(x,y):
   return 1./(len(x)-1)*np.dot(x-x.mean(),y-y.mean())
   
