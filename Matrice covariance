@@ -8,4 +8,10 @@ def covariance(x,y):
   return 1./(len(x)-1)*np.dot(x-x.mean(),y-y.mean())
   
 def Matrice_covariance_2D(x,y):
-  return np.array([[covariance(x,x)
+  return np.array([[covariance(x,x), covariance(x,y)],[covariance(y,x); covariance(y,y)]])
+  
+  M= Matrice_covariance_2D(x,y)
+  np.testintg.assert_almost_egual(M, np.cov(x,y))
+  
+  print M
+  print np.cov(x,y)
